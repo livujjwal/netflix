@@ -1,9 +1,9 @@
-
+import Body from "./components/Body";
 
 function App() {
   return (
     <div>
-      <h1 className="text-orange-700 text-center">Hello World</h1>
+      <Body />
     </div>
   );
 }
