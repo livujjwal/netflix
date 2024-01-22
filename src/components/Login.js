@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
+import { checkValidData } from "../utils/validation";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  function handleSignIn() {}
+  const name = useRef(null)
+  const email = useRef(null);
+  const password = useRef(null);
+  function handleSignIn() {
+    console.log(checkValidData(isSignInForm, name, email.current.value, password.current.value));
+  }
 
   return (
     <div>
@@ -15,23 +21,29 @@ const Login = () => {
           alt="bg-image"
         />
       </div>
-      <form className="absolute w-4/12 max-lg:w-8/12 max-sm:w-10/12 bg-black bg-opacity-80 px-[5rem] py-12 my-32 mx-auto left-0 right-0 text-white rounded-md">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="absolute w-4/12 max-lg:w-8/12 max-sm:w-10/12 bg-black bg-opacity-80 px-[5rem] py-12 my-32 mx-auto left-0 right-0 text-white rounded-md"
+      >
         <h1 className="text-3xl py-2 font-semibold">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
-            type="email"
+          ref={name}
+            type="text"
             placeholder="Full Name"
             className=" p-3 my-4 block bg-neutral-700 w-full rounded outline-none"
           />
         )}
         <input
+          ref={email}
           type="email"
           placeholder="Email"
           className=" p-3 my-4 block bg-neutral-700 w-full rounded outline-none"
         />
         <input
+          ref={password}
           type="password"
           placeholder="Password"
           className=" p-3 my-4 block bg-neutral-700 w-full rounded "
