@@ -3,8 +3,9 @@ export const checkValidData = (isSignInForm, name, email, password) => {
     const isNameValid =
       /(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})/.test(
         name.current.value
+        
       );
-      if (!isNameValid) return "Enter valid Full name";
+      if (!isNameValid) return "Please enter valid full name";
   }
   const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
     email
