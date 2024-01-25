@@ -68,7 +68,26 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {})
+        .then((userCredential) => {
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: { USER_AVATAR },
+          })
+            .then(() => {
+              const { email, password, displayName, photoURL } =
+                auth.currentUser;
+              dispatch(
+                addUser({
+                  email: email,
+                  password: password,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {});
+        })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
@@ -80,9 +99,9 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
+      <div className="absolute w-screen h-screen">
         <img
-          className="object-cover max-sm:h-dvh max-lg:h-dvh w-dvw"
+          className="object-cover w-screen h-screen"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/16006346-87f9-4226-bc25-a1fb346a2b0c/9662d0fd-0547-4665-b887-771617268815/IN-en-20240115-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="bg-image"
         />
