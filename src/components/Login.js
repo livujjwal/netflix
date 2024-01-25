@@ -40,15 +40,14 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: { USER_AVATAR },
+            photoURL: USER_AVATAR,
           })
             .then(() => {
-              const { email, password, displayName, photoURL } =
-                auth.currentUser;
+              const { email, uid, displayName, photoURL } = auth.currentUser;
               dispatch(
                 addUser({
                   email: email,
-                  password: password,
+                  uid: uid,
                   displayName: displayName,
                   photoURL: photoURL,
                 })
@@ -70,23 +69,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          updateProfile(user, {
-            displayName: name.current.value,
-            photoURL: { USER_AVATAR },
-          })
-            .then(() => {
-              const { email, password, displayName, photoURL } =
-                auth.currentUser;
-              dispatch(
-                addUser({
-                  email: email,
-                  password: password,
-                  displayName: displayName,
-                  photoURL: photoURL,
-                })
-              );
-            })
-            .catch((error) => {});
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -108,7 +90,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-4/12 lg:w-9/12 max-lg:w-9/12 max-sm:w-10/12 bg-black bg-opacity-80 px-[5rem] py-12 my-32 mx-auto left-0 right-0 text-white rounded-md"
+        className="absolute w-4/12 lg:w-8/12 max-lg:w-9/12 max-sm:w-10/12 bg-black bg-opacity-80 px-[5rem] py-12 my-32 mx-auto left-0 right-0 text-white rounded-md"
       >
         <h1 className="text-3xl py-2 font-semibold">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -133,7 +115,7 @@ const Login = () => {
           type="password"
           placeholder="Password"
           autoComplete="current-password"
-          className=" p-3 my-4 block bg-neutral-700 w-full rounded "
+          className=" p-3 my-4 block bg-neutral-700 w-full rounded outline-none"
         />
         <button
           className="py-2 px-8 my-4 bg-[#E50914] w-full rounded text-xl font-medium"

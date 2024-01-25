@@ -11,36 +11,35 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
+  function handleSignOut() {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {
+        navigate("/error");
+      });
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { email, password, displayName, photoURL } = user;
+        const { email, uid, displayName, photoURL } = user;
         dispatch(
           addUser({
             email: email,
-            password: password,
+            uid: uid,
             displayName: displayName,
             photoURL: photoURL,
           })
         );
         navigate("/browse");
       } else {
-        navigate("/");
         dispatch(removeUser());
+        navigate("/");
       }
     });
     //Unsubscribe when component un mount
     return () => unsubscribe();
   }, []);
-
-  function handleSignOut() {
-    signOut(auth)
-      .then(() => {
-      })
-      .catch((error) => {
-        navigate("/error");
-      });
-  }
 
   return (
     <div className="absolute px-6 py-1 bg-gradient-to-b from-black w-full z-20 flex justify-between">
