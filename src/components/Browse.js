@@ -1,16 +1,24 @@
-
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecandaryContainer from "./SecandaryContainer";
+import GptSeacrh from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  useNowPlayingMovies()
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  useNowPlayingMovies();
   return (
-    <div className="w-screen">
+    <div>
       <Header />
-      <MainContainer/>
-      <SecandaryContainer/>
+      {showGptSearch ? (
+        <GptSeacrh />
+      ) : (
+        <>
+          <MainContainer />
+          <SecandaryContainer />
+        </>
+      )}
     </div>
   );
 };

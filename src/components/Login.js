@@ -9,7 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { BG_URL, USER_AVATAR } from "../utils/constants";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -26,7 +26,6 @@ const Login = () => {
         password.current.value
       )
     );
-    // console.log(errorMessage,isSignInForm);
     if (errorMessage) return;
 
     // Sign Up
@@ -54,12 +53,10 @@ const Login = () => {
               );
             })
             .catch((error) => {});
-          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode, " ", errorMessage);
         });
     } else {
       signInWithEmailAndPassword(
@@ -73,7 +70,6 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode, " ", errorMessage);
         });
     }
   }
@@ -84,7 +80,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="object-cover max-sm:h-dvh max-sm:w-dvh h-dvh w-screen "
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/16006346-87f9-4226-bc25-a1fb346a2b0c/9662d0fd-0547-4665-b887-771617268815/IN-en-20240115-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BG_URL}
           alt="bg-image"
         />
       </div>

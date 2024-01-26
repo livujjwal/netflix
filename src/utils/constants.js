@@ -6,13 +6,23 @@ export const API_KEY = "a0635ae321beb794dff88bc500057a90";
 export const API_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDYzNWFlMzIxYmViNzk0ZGZmODhiYzUwMDA1N2E5MCIsInN1YiI6IjY1YjE0MDBkMjc5MGJmMDE1MTU2MjZlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7YplOKAtsfMgTMDitNVcKpEWkXEMOEBznDe_cZJTQBk";
 
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDYzNWFlMzIxYmViNzk0ZGZmODhiYzUwMDA1N2E5MCIsInN1YiI6IjY1YjE0MDBkMjc5MGJmMDE1MTU2MjZlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7YplOKAtsfMgTMDitNVcKpEWkXEMOEBznDe_cZJTQBk",
+  },
+};
 
-  export const API_OPTIONS = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDYzNWFlMzIxYmViNzk0ZGZmODhiYzUwMDA1N2E5MCIsInN1YiI6IjY1YjE0MDBkMjc5MGJmMDE1MTU2MjZlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7YplOKAtsfMgTMDitNVcKpEWkXEMOEBznDe_cZJTQBk'
-    }
-  };
+export const MOVIE_POSTER = "https://image.tmdb.org/t/p/w500";
+export const BG_URL =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/16006346-87f9-4226-bc25-a1fb346a2b0c/9662d0fd-0547-4665-b887-771617268815/IN-en-20240115-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 
-  export const MOVIE_POSTER = "https://image.tmdb.org/t/p/w500"
+export const SUPPORTED_LANGAUGE = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "german", name: "German" },
+  { identifier: "italian", name: "Italian" },
+  { identifier: "spanish", name: "Spanish" },
+];

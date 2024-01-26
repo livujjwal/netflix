@@ -5,8 +5,8 @@ const SecandaryContainer = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div className="bg-black">
-      <div className="relative -mt-56 px-4 z-20">
+    <div className="bg-black px-4">
+      <div className="relative -mt-52 px-4 w-screen z-20">
         <MovieList
           title={"Now Playing Movies"}
           movies={movies.nowPlayingMovies}
