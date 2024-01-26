@@ -11,8 +11,8 @@ const Header = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((store) => store.user);
-  const showGptSerach = useSelector(store => store.gpt.showGtpSerach);
+  const user= useSelector((store) => store?.user);
+  const showGptSerach = useSelector((store) => store?.gpt?.showGptSearch); ;
   console.log(showGptSerach);
   function handleshowGtpSerach() {
     dispatch(toggleShowGptSearch());

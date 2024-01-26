@@ -26,3 +26,4 @@ export const SUPPORTED_LANGAUGE = [
   { identifier: "italian", name: "Italian" },
   { identifier: "spanish", name: "Spanish" },
 ];
+export const OPEN_API = "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"
