@@ -11,10 +11,9 @@ const SecandaryContainer = () => {
           title={"Now Playing Movies"}
           movies={movies.nowPlayingMovies}
         />
-        <MovieList title={"Popular Movies"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Trending Movies"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Romance Movies"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Upcoming Movies"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Popular Movies"} movies={movies.popularMovies} />
+        <MovieList title={"Top Rated Movies"} movies={movies.topRatedMovies} />
+        <MovieList title={"Upcoming Movies"} movies={movies.upComigMovies} />
       </div>
     </div>
   );

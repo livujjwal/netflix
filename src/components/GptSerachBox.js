@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/langConstants";
 import { useRef } from "react";
 import openai from "../utils/openai";
-import useSerachMovies from "../hooks/useSerachMovies";
 import { API_OPTIONS } from "../utils/constants";
 import { addSearchMovies } from "../utils/moviesSlice";
 
@@ -23,8 +22,7 @@ const dispatch = useDispatch();
     
     // useSerachMovies();
     const query = searchText.current.value;
-    const res = await fetch(
-      "https://api.themoviedb.org/3/search/movie?query=" +
+    const res = await fetch("https://api.themoviedb.org/3/search/movie?query=" +
         query +
         "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
@@ -32,6 +30,7 @@ const dispatch = useDispatch();
     const data =await res.json();
 dispatch(addSearchMovies(data.results))
   }
+
   return (
     <div className=" pt-[14%] px-4">
       <form
