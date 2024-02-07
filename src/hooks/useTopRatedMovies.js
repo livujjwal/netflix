@@ -6,18 +6,18 @@ import { addTopRatedMovies } from "../utils/moviesSlice";
 const useTopRatedMovies = () => {
   const topRatedMovies = useSelector((store) => store.movies.topRatedMovies);
   const dispatch = useDispatch();
-  try {
-    useEffect(() => {
-      !topRatedMovies && fetchMovies();
-    }, []);
-    async function fetchMovies() {
+  useEffect(() => {
+    !topRatedMovies && fetchMovies();
+  }, []);
+  async function fetchMovies() {
+    try {
       const res = await fetch(
         "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
         API_OPTIONS
       );
       const data = await res.json();
-      dispatch(addTopRatedMovies(data.results))
-    }
-  } catch (error) {}
+      dispatch(addTopRatedMovies(data.results));
+    } catch (error) {}
+  }
 };
 export default useTopRatedMovies;

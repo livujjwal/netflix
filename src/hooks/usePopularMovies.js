@@ -6,16 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 const usePopularMovies = () => {
     const popularMovies = useSelector(store => store.movies.popularMovies)
   const dispatch = useDispatch();
-  try {
-    useEffect(() => {
-        !popularMovies && serachMovies();
-    }, []);
-    async function serachMovies() {
-      const res =await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', API_OPTIONS );
-      const data =await res.json();
+  useEffect(() => {
+    !popularMovies && serachMovies();
+  }, []);
+  async function serachMovies() {
+    try {
+      const res = await fetch(
+        "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+        API_OPTIONS
+      );
+      const data = await res.json();
       dispatch(addPopularMovies(data.results));
-    }
-  } catch (error) {}
+    } catch (error) {}
+  }
 
   return;
 };

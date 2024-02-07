@@ -8,12 +8,10 @@ import { LOGO_URL, SUPPORTED_LANGAUGE } from "../utils/constants";
 import { toggleShowGptSearch } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 const Header = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user= useSelector((store) => store?.user);
-  const showGptSerach = useSelector((store) => store?.gpt?.showGptSearch); ;
-  console.log(showGptSerach);
+  const user = useSelector((store) => store?.user);
+  const showGptSerach = useSelector((store) => store?.gpt?.showGptSearch);
   function handleshowGtpSerach() {
     dispatch(toggleShowGptSearch());
   }
@@ -52,7 +50,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute px-6 py-1 bg-gradient-to-b from-black w-full z-20 flex justify-between">
+    <div className="absolute px-6  bg-gradient-to-b from-black w-full z-20 flex justify-between">
       <img className="w-52" src={LOGO_URL} alt="logo" />
       {user && (
         <div className="flex p-2 items-center gap-4">
@@ -76,7 +74,7 @@ const Header = () => {
             className="font-bold text-[#E50914] p-2 rounded-md text-xl"
             onClick={handleshowGtpSerach}
           >
-           {showGptSerach ? "Homepage" : "GPT Serach"}
+            {showGptSerach ? "Homepage" : "Serach Movies"}
           </button>
           <img
             className="w-8 h-8 object-contain rounded"
