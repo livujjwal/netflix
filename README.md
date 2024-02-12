@@ -6,16 +6,25 @@ Welcome to the Netflix Web App! This project replicates the Netflix interface to
 
 ## Features
 
-- **Responsive Design**: Ensures an optimal viewing experience across various devices and screen sizes.
-- **Movie and TV Show Catalog**: Display a wide range of movies and TV shows with detailed information.
-- **Search Functionality**: Allow users to search for specific movies or TV shows.
-- **User Authentication**: Implement user authentication using Firebase Authentication.
-- **Dynamic Content Management**: Utilizes Redux for efficient state management.
-- **Integration with Firebase**: Leverages Firebase for backend services including database and hosting.
+1️⃣ User Authentication with Firebase:
+Seamlessly log in and sign up users with Firebase authentication, ensuring a secure and user-friendly experience.
+
+2️⃣ Onload Video Playback with YouTube Iframe:
+Experience the magic of instant video playback as soon as you land on the page, courtesy of YouTube iframe integration.
+
+3️⃣ Scrollable Movie List:
+Dive into an extensive collection of movies presented in a scrollable div, providing endless entertainment options at your fingertips.
+
+4️⃣ Search Movies Functionality:
+Explore your favorite movies effortlessly with the built-in search feature, allowing you to discover content tailored to your preferences.
+
+5️⃣ Multilingual Options:
+Choose from a selection of five languages to enhance your viewing experience and make the platform accessible to a global audience.
 
 1. Git repository:https://github.com/livujjwal/netflix.git
 2. 2.Demo:https://netflix-gpt-sooty-one.vercel.app/
 ## Screenshots
+![netflix](https://github.com/livujjwal/netflix/assets/132872642/994e0d9d-768f-47fb-b5af-fbd0ab139cd4)
 
 
 ## Contributing
