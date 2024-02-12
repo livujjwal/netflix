@@ -17,6 +17,7 @@ const GptSearchBox = () => {
       API_OPTIONS
     );
     const data = await res.json();
+    console.log(data);
     dispatch(addSearchMovies(data.results));
   }
 
@@ -31,7 +32,7 @@ const GptSearchBox = () => {
         />
         <button
           className="w-1/4 font-bold text-[#E50914] p-2 rounded-md text-xl"
-          onClick={handleGptSerach}
+          onClick={() => handleGptSerach()}
         >
           {lang[langKey].search}
         </button>

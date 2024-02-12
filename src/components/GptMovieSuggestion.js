@@ -8,8 +8,6 @@ const GptMovieSuggestion = () => {
   return (
     <div className="pt-[1%]">
         <div className="bg-transparent ">
-
-       
       <h1 className="text-2xl px-4 py-4 text-white">Serach Results</h1>
       <div className="flex overflow-x-scroll scrollbar-hide">
         <div className="flex pb-10">

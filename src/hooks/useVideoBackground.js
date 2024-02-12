@@ -6,12 +6,15 @@ import { addMoviesTrailer } from "../utils/moviesSlice";
 const useVideoBackground = (movieId) => {
   const dispatch = useDispatch();
   const moviesTrailer = useSelector((store) => store.movies.moviesTrailer);
+  const trailerId = useSelector((store) => store.movies.nowPlayingMovies[0].id);
   useEffect(() => {
     !moviesTrailer && fetchTrailer();
   }, []);
   const fetchTrailer = async () => {
     const res = await fetch(
-      "https://api.themoviedb.org/3/movie/" + 787699 + "/videos?language=en-US",
+      "https://api.themoviedb.org/3/movie/" +
+        trailerId +
+        "/videos?language=en-US",
       API_OPTIONS
     );
     const data = await res.json();
